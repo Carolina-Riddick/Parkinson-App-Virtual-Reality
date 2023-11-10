@@ -9,6 +9,8 @@ public class CheckElements : MonoBehaviour
     [SerializeField] private int numberOfElements; //3
     private int numberOfElementsInSocket = 0;
 
+    [SerializeField] bool cursorActive = true;
+
     [Header("Unity Events")]
     public UnityEvent unlock;
     public UnityEvent hideTaskDescription;
@@ -17,6 +19,17 @@ public class CheckElements : MonoBehaviour
     [Header("UI Components")]
     [SerializeField] Canvas nextLevelUI;
     [SerializeField] Canvas taskDescription;
+
+
+    private void Start()
+    {
+        if (cursorActive)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+
 
     public void AddElementInSocket()
     {
